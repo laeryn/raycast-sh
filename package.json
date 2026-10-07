@@ -1,0 +1,91 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "sh-shell",
+  "title": "sh",
+  "description": "Run any shell command and view its output \u2014 or open a live interactive terminal inside Raycast.",
+  "icon": "icon.png",
+  "author": "laeryn",
+  "license": "MIT",
+  "categories": [
+    "Developer Tools",
+    "System"
+  ],
+  "commands": [
+    {
+      "name": "sh",
+      "title": "sh",
+      "subtitle": "Run Shell Command",
+      "description": "Run a shell command and view its output.",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "command",
+          "type": "text",
+          "placeholder": "command",
+          "required": false
+        }
+      ],
+      "icon": "icon.png"
+    },
+    {
+      "name": "terminal",
+      "title": "sh Terminal",
+      "subtitle": "Interactive Shell",
+      "description": "A persistent interactive shell session inside Raycast.",
+      "mode": "view",
+      "icon": "terminal.png"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "shell",
+      "title": "Shell",
+      "description": "Path to the shell to use. Leave empty to use your login shell ($SHELL).",
+      "type": "textfield",
+      "required": false,
+      "placeholder": "/bin/zsh"
+    },
+    {
+      "name": "workingDirectory",
+      "title": "Working Directory",
+      "description": "Where commands start. Defaults to your home folder.",
+      "type": "directory",
+      "required": false
+    },
+    {
+      "name": "terminalApp",
+      "title": "Terminal App",
+      "description": "Where \"Open in Terminal App\" (\u2318\u21e7\u21b5) runs commands. Leave empty to use Ghostty if installed, else Terminal.",
+      "type": "appPicker",
+      "required": false
+    },
+    {
+      "name": "loadRcFiles",
+      "title": "Shell Config",
+      "label": "Load interactive config (.zshrc / .bashrc) for aliases and functions",
+      "description": "Run one-off commands with -i so your aliases and functions work.",
+      "type": "checkbox",
+      "required": false,
+      "default": true
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^2.6.3",
+    "@raycast/utils": "^2.3.2",
+    "@xterm/headless": "^6.0.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.2.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.6.0"
+  },
+  "scripts": {
+    "build": "ray build",
+    "dev": "ray develop",
+    "lint": "ray lint",
+    "fix-lint": "ray lint --fix"
+  }
+}
